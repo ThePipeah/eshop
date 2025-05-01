@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-$hv@(q5q9p=3x+u!v)+e@vt_y@hn-$xswh=%iuag8%cikoe_-v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eshop-production-6871.up.railway.app', 'https://eshop-production-6871.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://eshop-production-6871.up.railway.app']
+ALLOWED_HOSTS = []#'eshop-production-6871.up.railway.app', 'https://eshop-production-6871.up.railway.app']
+#CSRF_TRUSTED_ORIGINS = ['https://eshop-production-6871.up.railway.app']
 
 # Application definition
 
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'store',
     'cart',
     'payment',
-    'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'eshop.urls'
@@ -91,9 +91,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': os.environ['DB_PASSWORD_YO'],
-        'HOST': 'shuttle.proxy.rlwy.net',
-        'PORT': '37224',
+        'PASSWORD': os.environ.get('DB_PASSWORD_YO'),
+        'HOST': 'trolley.proxy.rlwy.net',
+        'PORT': '23603',
     }
 }
 
@@ -136,8 +136,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = ['static/']
 
 # White noise static stuff
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
